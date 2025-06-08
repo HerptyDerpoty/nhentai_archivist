@@ -5,7 +5,7 @@ WORKDIR "/app/"
 COPY "." "."
 RUN cargo build --release
 
-FROM gcr.io/distroless/cc
+FROM gcr.io/distroless/cc-debian11:debug
 WORKDIR "/app/"
 COPY --from=builder "/app/target/release/nhentai_archivist" "."
 
